@@ -1,7 +1,8 @@
-from django.shortcuts import render
-from django.http import HttpResponse
 import sys
-sys.path.append("C:/Users/Ana/Desktop/Ana/Dodatno/Lumen/backend")
+
+from django.http import HttpResponse
+
+sys.path.append("C:/Users/Ana/Desktop/Ana/Dodatno/Lumen/Lumen")
 import main
 
 # Create your views here.
