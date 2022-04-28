@@ -8,6 +8,7 @@ const Home = () => {
         // navigate("/guess", {state: {coordinates: [50, 50], image:undefined}})
         if (files.length !== 0) {
             fetch("http://localhost:8000/app/", {
+                mode: 'no-cors',
                 method: "POST",
                 headers: {
                     Accept: "application/json",
