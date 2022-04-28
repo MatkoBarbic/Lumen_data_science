@@ -17,7 +17,8 @@ const Home = () => {
                 body: JSON.stringify({
                     files
                 }),
-            }).then((res) => res.json()).then((res) => navigate("/guess", {state: {coordinates: [50, 50], image: 50}}))
+            }).then((res) => res.json()).then((res) => navigate("/guess", res))
+            // }).then((res) => res.json()).then((res) => navigate("/guess", {state: {coordinates: [50, 50], image: 50}}))
         }
     }
     return (

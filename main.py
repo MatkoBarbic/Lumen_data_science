@@ -1,6 +1,9 @@
+import json
+
+
 def dummy_fun():
-    my_tuple = (70, 50)
-    return my_tuple
+    result = {"state": {"coordinates": (70, 50)}}
+    return json.dumps(result)
 
 
 
