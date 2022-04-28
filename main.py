@@ -1,5 +1,6 @@
 def dummy_fun():
-    return 'Ana'
+    my_tuple = (70, 50)
+    return my_tuple
 
 
 
