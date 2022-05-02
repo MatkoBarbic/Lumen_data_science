@@ -1,5 +1,9 @@
+import json
+
+
 def dummy_fun():
-    return 'Ana'
+    result = {"state": {"coordinates": (70, 50)}}
+    return result
 
 
 

@@ -8,10 +8,11 @@ const Guess = () => {
     }
     return(
         <div className="container-coordinates">
-            <h2 className="title-small">Coordinates:</h2>
+            {/* {console.log(location.state)} */}
+            <h2 className="title-small">Koordinate:</h2>
             <h2 className="title-small">{location.state.coordinates[0]} N</h2>
             <h2 className="title-small">{location.state.coordinates[1]} E</h2>
-            <button className="button" onClick={handleClick}>New location</button>
+            <button className="button" onClick={handleClick}>Nova lokacija</button>
         </div>
     )
 }

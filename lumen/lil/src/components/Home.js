@@ -4,16 +4,19 @@ const Home = () => {
     let navigate = useNavigate();
     const [files, setFiles] = useState([])
     const handleUpload = () => {
+        // console.log(files)
+        // navigate("/guess", {state: {coordinates: [50, 50], image:undefined}})
         if (files.length !== 0) {
-            fetch("http://localhost:8000/app/", {
+            fetch("", {
                 method: "POST",
                 headers: {
+                    Accept: "application/json",
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
                     files
                 }),
-            }).then((res) => res.json()).then((res) => navigate("/guess", res))
+            }).then((res) => res.json()).then((res) => navigate("/guess", {state: {coordinates: [50, 50], image: 50}}))
         }
     }
     return (
@@ -21,22 +24,15 @@ const Home = () => {
             <div className="container-main">
                 <h1 className='title-big'>lil GUESSR</h1>
                 <div className="container-upload">
-                    <h2 className='title-small'>Upload pictures here: </h2>
-                    {files.length === 0 &&
-                    <label className="label-button">Choose 
+                    <h2 className='title-small'>Uploadajte slike ovdje: </h2>
+                    {files.length === 0 ?
+                    <label className="label-button">Odaberite slike
                         <input type="file" multiple className="input" onChange={(e) => setFiles(e.target.files)} required></input>
                     </label>
-                    }
-                    {files.length === 1 &&
-                    <label className="label-button">{files.length} image chosen
+                    :
+                    <label className="label-button">{files.length} slike odabrano
                         <input type="file" multiple className="input" onChange={(e) => setFiles(e.target.files)} required></input>
-                    </label>
-                    }
-                    {files.length > 1 &&
-                    <label className="label-button">{files.length} images chosen
-                        <input type="file" multiple className="input" onChange={(e) => setFiles(e.target.files)} required></input>
-                    </label>
-                    }
+                    </label>}
 
                     <button onClick={handleUpload} className="button">Upload</button>
                 </div>
