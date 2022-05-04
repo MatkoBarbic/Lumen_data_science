@@ -1,16 +1,19 @@
 import json
-
+from io import BytesIO
 import tensorflow as tf
 from tensorflow.keras import layers
 from tensorflow.keras.applications import EfficientNetB4
+import cv2
 import numpy as np
 import matplotlib.pyplot as plt
+
+from django.conf import settings
 
 model_path = "./model/region_guessr_reg_eff_net_mdl_wts.hdf5"
 IMAGE_SIZE = 128
 BATCH_SIZE = 128
-json_x_path = "./gdrive/MyDrive/lumen/transforms/x.json"
-json_y_path = "./gdrive/MyDrive/lumen/transforms/y.json"
+json_x_path = "./transforms/x.json"
+json_y_path = "./transforms/y.json"
 
 def build_model():
   inputs = layers.Input(shape=(IMAGE_SIZE, IMAGE_SIZE, 3))
@@ -55,9 +58,29 @@ def transform(json_x_path, json_y_path, data):
     transformed_data.append(transformed)
   return transformed_data
 
-def predict_coords(images):
-    model = build_model()
-    model.load_weights(model_path)
-    predictions = model(images)
-    predictions = transform(json_x_path=json_x_path, json_y_path=json_y_path, data=predictions)
-    return predictions
+def predict_coords(request):
+  images = []
+  try:
+    for i in request.FILES:
+      image = cv2.imread(request.FILES[i].temporary_file_path())
+      image = cv2.resize(image, (IMAGE_SIZE, IMAGE_SIZE))
+      images.append(image)
+  except:
+    print(type(request.FILES["0.jpg"].open()))
+    for i in request.FILES:
+      # image_stream = BytesIO(request.FILES[i].read())
+      image = cv2.imdecode(np.frombuffer(request.FILES[i].read(), np.uint8), 1)
+      image = cv2.resize(image, (IMAGE_SIZE, IMAGE_SIZE))
+      images.append(image)
+  # finally:
+  model = build_model()
+  model.load_weights(model_path)
+  predictions = model(np.array(images))
+  predictions = transform(json_x_path=json_x_path, json_y_path=json_y_path, data=predictions)
+  result = {"x": 0, "y": 0}
+  for prediction in predictions:
+    result["x"] += np.array(prediction[1])
+    result["y"] += np.array(prediction[0])
+  result["x"] = result["x"] / len(predictions)
+  result["y"] = result["y"] / len(predictions)
+  return result
