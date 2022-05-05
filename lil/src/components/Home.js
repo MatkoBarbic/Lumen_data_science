@@ -25,7 +25,7 @@ const Home = () => {
     return (
         <>
             <div className="container-main">
-                <h1 className='title-big'>lil GUESSR</h1>
+                <h1 className='title-big'>GEOGUESSR AI</h1>
                 <div className="container-upload">
                     <h2 className='title-small'>Upload pictures here: </h2>
                     {files.length === 0 &&
