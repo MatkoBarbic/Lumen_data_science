@@ -5,20 +5,14 @@ const Home = () => {
     const [files, setFiles] = useState([])
     const handleUpload = () => {
         const formData = new FormData()
-        // console.log(files[0])
         if (files.length !== 0) {
             for (var i = 0; i < files.length; i++){
                 formData.append(`${i * 90}.jpg`, files[i])
             }
             fetch("http://localhost:8000/app/", {
                 method: "POST",
-                // headers: {
-                //     // "Content-Type": "application/json"
-                //     // "Content-Type": "multipart/form-data"
-                // },
                 body: formData,
             }).then((res) => res.json()).then((res) => navigate("/guess", {state: res}))
-            // }).then((res) => res.json()).then((res) => console.log(res))
 
         }
     }
