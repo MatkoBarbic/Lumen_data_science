@@ -1,6 +1,6 @@
 # Lumen
 
-npm install -> u rontend projektu
+npm install -> u frontend projektu
 
 npm start -> u frontend projektu
 
