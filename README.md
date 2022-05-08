@@ -1,10 +1,10 @@
 # Lumen
 
-npm install -> u lil (frontend) projektu
+npm install -> u rontend projektu
 
-npm start -> u lil (frontend) projektu
+npm start -> u frontend projektu
 
-python manage.py migrate -> u lumen (backend) projektu
-python manage.py runserver -> u lumen (backend) projektu
+python manage.py migrate -> u backend projektu
+python manage.py runserver -> u backend projektu
 
-python manage.py runserver -> u lumen (backend) projektu
+python manage.py runserver -> u backend projektu
