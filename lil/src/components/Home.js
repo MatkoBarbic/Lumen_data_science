@@ -4,22 +4,22 @@ const Home = () => {
     let navigate = useNavigate();
     const [files, setFiles] = useState([])
     const handleUpload = () => {
+        const formData = new FormData()
         if (files.length !== 0) {
+            for (var i = 0; i < files.length; i++){
+                formData.append(`${i * 90}.jpg`, files[i])
+            }
             fetch("http://localhost:8000/app/", {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    files
-                }),
-            }).then((res) => res.json()).then((res) => navigate("/guess", res))
+                body: formData,
+            }).then((res) => res.json()).then((res) => navigate("/guess", {state: res}))
+
         }
     }
     return (
         <>
             <div className="container-main">
-                <h1 className='title-big'>lil GUESSR</h1>
+                <h1 className='title-big'>GEOGUESSR AI</h1>
                 <div className="container-upload">
                     <h2 className='title-small'>Upload pictures here: </h2>
                     {files.length === 0 &&

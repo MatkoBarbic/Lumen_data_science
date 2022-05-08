@@ -2,12 +2,15 @@ import sys
 
 from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-
-sys.path.append("C:/Users/Ana/Desktop/Ana/Dodatno/Lumen/Lumen")
-#sys.path.append("C:/Users/Matko/Desktop/Projekti/lil GUESSR")
+from io import BytesIO
+# sys.path.append("C:/Users/Matko/Desktop/Projekti/lil GUESSR")
 import main
 
 # Create your views here.
 @csrf_exempt
 def index(request):
-    return JsonResponse(main.dummy_fun())
+    # print(request.FILES)
+    # my_file = request.FILES['0.jpg']
+    # filename = my_file.read()
+    # print("aksfbasdklflasdbffffffffffffffffffffffffadn", request.FILES['0.jpg'].temporary_file_path())
+    return JsonResponse(main.predict_coords(request))
