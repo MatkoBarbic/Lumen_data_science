@@ -10,7 +10,7 @@ IMAGE_SIZE = 128
 BATCH_SIZE = 128
 json_x_path = "./transforms/x.json"
 json_y_path = "./transforms/y.json"
-map_path = "../lil/src/images/croatia-satellite-map.jpg"
+map_path = "../frontend/src/images/croatia-satellite-map.jpg"
 
 def build_model():
   inputs = layers.Input(shape=(IMAGE_SIZE, IMAGE_SIZE, 3))
@@ -31,7 +31,7 @@ def visualize_results(pred, map_path):
   y0 = map.shape[1] - int(pred[1] * map.shape[1])
 
   cv2.circle(map, (x0, y0), 15, (0, 0, 255), -1)
-  cv2.imwrite("../lil/src/images/result_visualization.jpg", map)
+  cv2.imwrite("../frontend/src/images/result_visualization.jpg", map)
 
 def dummy_fun():
     result = {"state": {"coordinates": (70, 50)}}

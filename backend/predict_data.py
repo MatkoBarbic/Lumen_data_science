@@ -50,7 +50,7 @@ def transform(json_x_path, json_y_path, data):
     transformed_data.append(transformed)
   return transformed_data
 
-images_path = "C:/Users/Matko/Desktop/lumen-datasci-2022-test/data"
+images_path = "path"
 results_path = "results.csv"
 results_file = open(results_path, "w")
 csv_writer = csv.writer(results_file)

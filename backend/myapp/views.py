@@ -3,7 +3,7 @@ import sys
 from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from io import BytesIO
-# sys.path.append("C:/Users/Matko/Desktop/Projekti/lil GUESSR")
+sys.path.append("..")
 import main
 
 # Create your views here.

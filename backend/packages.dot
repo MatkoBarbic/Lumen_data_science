@@ -1,0 +1,21 @@
+digraph "packages" {
+rankdir=BT
+charset="utf-8"
+"backend" [color="black", label="backend", shape="box", style="solid"];
+"backend.lumen" [color="black", label="backend.lumen", shape="box", style="solid"];
+"backend.lumen.asgi" [color="black", label="backend.lumen.asgi", shape="box", style="solid"];
+"backend.lumen.settings" [color="black", label="backend.lumen.settings", shape="box", style="solid"];
+"backend.lumen.urls" [color="black", label="backend.lumen.urls", shape="box", style="solid"];
+"backend.lumen.wsgi" [color="black", label="backend.lumen.wsgi", shape="box", style="solid"];
+"backend.main" [color="black", label="backend.main", shape="box", style="solid"];
+"backend.manage" [color="black", label="backend.manage", shape="box", style="solid"];
+"backend.myapp" [color="black", label="backend.myapp", shape="box", style="solid"];
+"backend.myapp.admin" [color="black", label="backend.myapp.admin", shape="box", style="solid"];
+"backend.myapp.apps" [color="black", label="backend.myapp.apps", shape="box", style="solid"];
+"backend.myapp.migrations" [color="black", label="backend.myapp.migrations", shape="box", style="solid"];
+"backend.myapp.models" [color="black", label="backend.myapp.models", shape="box", style="solid"];
+"backend.myapp.tests" [color="black", label="backend.myapp.tests", shape="box", style="solid"];
+"backend.myapp.urls" [color="black", label="backend.myapp.urls", shape="box", style="solid"];
+"backend.myapp.views" [color="black", label="backend.myapp.views", shape="box", style="solid"];
+"backend.predict_data" [color="black", label="backend.predict_data", shape="box", style="solid"];
+}

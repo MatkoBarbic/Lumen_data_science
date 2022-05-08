@@ -1,0 +1,7 @@
+digraph "classes" {
+rankdir=BT
+charset="utf-8"
+"django.apps.config.AppConfig" [color="black", fontcolor="black", label="{AppConfig|apps : NoneType\llabel\lmodels : NoneType\lmodels_module : NoneType\lmodule\lname\lpath\lverbose_name\l|create(entry)\ldefault_auto_field()\lget_model(model_name, require_ready)\lget_models(include_auto_created, include_swapped)\limport_models()\lready()\l}", shape="record", style="solid"];
+"backend.myapp.apps.MyappConfig" [color="black", fontcolor="black", label="{MyappConfig|default_auto_field : str\lname : str\l|}", shape="record", style="solid"];
+"backend.myapp.apps.MyappConfig" -> "django.apps.config.AppConfig" [arrowhead="empty", arrowtail="none"];
+}
