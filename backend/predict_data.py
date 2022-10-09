@@ -52,17 +52,17 @@ def transform(json_x_path, json_y_path, data):
 
 images_path = "path"
 results_path = "results.csv"
-results_file = open(results_path, "w")
+results_file = open(results_path, "w", newline="")
 csv_writer = csv.writer(results_file)
 csv_writer.writerow(["uuid", "latitude", "longitude"])
+model = build_model()
+model.load_weights(model_path)
 for folder in os.listdir(images_path)[:10]:
     images = []
     for image_name in os.listdir(images_path + "/" + folder):
         image = cv2.imread(images_path + "/" + folder + "/" + image_name)
         image = cv2.resize(image, (IMAGE_SIZE, IMAGE_SIZE))
         images.append(image)
-    model = build_model()
-    model.load_weights(model_path)
     predictions = model(np.array(images))
     predictions = transform(json_x_path=json_x_path, json_y_path=json_y_path, data=predictions)
     result = {"x": 0, "y": 0}
